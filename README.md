@@ -3,7 +3,7 @@
 ====
 
 
-> 该项目是基于：JGulp （http://devework.com/jgulp.html） 的基础骨架进一步定制扩展的一个前端项目自动化工作流，新增了bower及其他新功能，欢迎Fork！
+> 该项目是基于：Gulp Bower 定制扩展的一个前端项目自动化工作流，新增了bower及其他新功能，欢迎Fork！
 
 >
 
@@ -12,19 +12,29 @@
 
 > 小标题含义：功能（对应的Gulp 插件）
 
+### Bower  管理你的客户端依赖关系
+
+通过 .bowerrc 可配置插件包目标路径
+
+使用 bower install package --save 能够将包安装到你的项目中，同时将依赖关系写入到 bower.json 的 dependencies 数组。
+
 ### 本地Web 服务器功能（gulp-webserver + tiny-lr）
 
 能够让你的当前项目目录映射到Localhost 上，本功能主要是为了添加自动刷新（livereload）功能而添加。
 
 ### 网页自动刷新功能（gulp-livereload）
 
-这个功能毫无疑问是最实用的，借助本livereload 模块，一旦监控到有文件改动就自动刷新页面。需要[安装相应的Chrome 扩展](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=zh-CN)配合使用。
+一旦监控到有文件改动就自动刷新页面。需要[安装相应的Chrome 扩展](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=zh-CN)配合使用。
 
 ### JS 文件合并（gulp-concat）
 
 ### JS 文件压缩（gulp-uglify）
 
-### 图片无损压缩1（gulp-imagemin + imagemin-pngquant）
+### HTML 文件压缩（gulp-htmlmin）
+
+### CSS  文件压缩（gulp-minify-css）
+
+### 图片无损压缩1（gulp-imagemin）
 
 经过实际使用发现，图片压缩略有损失，但基本无碍。
 
@@ -32,9 +42,9 @@
 
 在项目完成可以删除一些多余的文件
 
-### 任务错误中断自动重传（gulp-plumber）
+### 任务catch模块（gulp-plumber）
 
-好吧，“任务错误中断自动重传”是我瞎命名的。默认的 Gulp 任务在执行过程中如果出错会报错并立即停止当前工作流（如在 watch Sass编译时候恰巧 Sass代码写错了）。使用plumber 模块可以在纠正错误后继续执行任务。
+默认的 Gulp 任务在执行过程中如果出错会报错并立即停止当前工作流。使用plumber 模块可以在纠正错误后继续执行任务。
 
 ### 自动打包并按时间重命名（gulp-zip）
 
@@ -53,30 +63,24 @@
 
 ## 使用方法
 
-![Alt text](./images/info.png)
 
 
-1.  请先确保已经安装Gulp(需要 Node.js 环境) ，建议采用下面的代码全局安装
+1. 进入你的项目文件夹下`clone` 本 git 项目
 
-		$ npm install --global gulp 
+		$ git clone https://github.com/yancykim/GB-Front.git
 
-2. 进入你的项目文件夹下`clone` 本 git 项目
-
-		$ git clone https://github.com/Jeff2Ma/JGulp.git
-
-   `clone` 后建议删除残留的`.git` 缓存文件夹，方便添加自己的Git 版本信息管理：
-   
-  		$ rm -rf .git  
 		
-3. 安装相关Node 模块
+2. 安装相关Node 模块
 
 	在项目文件夹目录下通过下面命令安装相关Node 模块
 
-		npm install 
+		npm install （所有依赖已完全配置）
 
-4. 按照个人的项目需求，重命名`JGulp` 文件夹为你自己的项目英文名称，填写`Project.md `文件（`Project.md`文件在项目最终打包的时候会自动重命名为`README.md`保存在`build` 文件夹），填写`package.json` 文件的项目名称部分。如果需要进一步的个性化，可以编辑`gulpfile.js` 文件。
+3. 按照个人的项目需求，填写`Project.md `文件（`Project.md`文件在项目最终打包的时候会自动重命名为`README.md`保存在`build` 文件夹），填写`package.json` `config.json` 文件的项目名称部分。
 
-5. 进行相关配置（如果有需要用到相关功能）：为了安全，将重要的配置信息保存到项目目录下的一个json 文件中，名为 `config.json`，该文件示例代码如下：
+	如果根据自身项目需要进一步的个性化，可以编辑`gulpfile.js` 文件，所有压缩项目以数组配置，自由扩展。
+
+4. 进行相关配置（如果有需要用到相关功能）：为了安全，将重要的配置信息保存到项目目录下的一个json 文件中，名为 `config.json`，该文件示例代码如下：
 
 		{
 			"project" : "Gulp", 	
@@ -88,28 +92,27 @@
     			"host" : "8.8.8.8",
     			"user" : "username",
    				"port" : "22",
-    			"key" : "~/.ssh/sdfsfdsf",
+    			"key" : "~/.ssh/pwd",
     			"remotePath" :"/"
  			}
 		}   
 相关内容（项目别名、本地服务器域名+端口、ftp相关信息）请自行配置。
 		
-6. 然后捏，就基本上可以的了，默认任务：
+5. 然后，就基本上可以了，默认开发阶段任务（构建/插件/调试）
 
 		$ gulp
 	
-7. 如果项目已经完成，可以通过`build` 命令进行项目相关文件收集，项目文件最终会汇集到项目目录下的`build` 文件夹中方面进一步操作
+6. 如果项目已经完成，可以通过`build` 命令进行项目相关文件收集，项目文件最终会汇集到项目目录下的`build` 文件夹中方面进一步操作（压缩）
 
 		$ gulp build
 
-8. 打包`build` 文件夹下的项目文件，会自动生成`项目别名-xxxx.zip` 的文件（`xxxx` 为打包时候的时间）供交付使用或进行下一阶段的开发
+7. 打包`build` 文件夹下的项目文件，会自动生成`项目别名-xxxx.zip` 的文件（`xxxx` 为打包时候的时间）供交付使用或进行下一阶段的开发（打包）
 
 		$ gulp zip
 		
-9. 如果要上传到远程服务器进行线上调试，可以通过该命令自动上传（需提前在 `config.json`做好配置 ）：
+8. 如果要上传到远程服务器进行线上调试，可以通过该命令自动上传（需提前在 `config.json`做好配置 ）（上传）
 
 		$ gulp upload 
-
 
 
 

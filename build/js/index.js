@@ -1,0 +1,1 @@
+function text(){var t="this is text";alert(t)}var a="Hello World!";

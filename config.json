@@ -1,0 +1,17 @@
+{
+  "project" : "project",
+
+  "localserver" : {
+    "host" : "localhost",
+    "port" : "8081"
+  },
+
+  "sftp" : {
+    "host" : "8.8.8.8",
+    "user" : "username",
+    "port" : "22",
+    "key" : "~/.ssh/pwd",
+    "remotePath" :"/"
+  }
+
+}

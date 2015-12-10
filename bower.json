@@ -1,0 +1,21 @@
+{
+  "name": "Project",
+  "description": "test",
+  "main": "",
+  "authors": [
+    "Jinyuanche <kyuanche@qq.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

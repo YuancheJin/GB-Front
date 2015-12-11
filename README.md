@@ -3,7 +3,7 @@
 ====
 
 
-> 该项目是基于：Gulp Bower 定制扩展的一个前端项目自动化工作流，新增了bower及其他新功能，欢迎Fork！
+> 该框架是基于：Gulp Bower 定制扩展的一个前端项目自动化工作流，新增了bower及其他新功能，欢迎Fork！
 
 >
 
@@ -26,35 +26,35 @@
 
 一旦监控到有文件改动就自动刷新页面。需要[安装相应的Chrome 扩展](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=zh-CN)配合使用。
 
-### JS 文件合并（gulp-concat）
+### JS 文件合并
 
-### JS 文件压缩（gulp-uglify）
+### JS 文件压缩
 
-### HTML 文件压缩（gulp-htmlmin）
+### HTML 文件压缩
 
-### CSS  文件压缩（gulp-minify-css）
+### CSS  文件压缩
 
-### 图片无损压缩1（gulp-imagemin）
+### 图片无损压缩
 
 经过实际使用发现，图片压缩略有损失，但基本无碍。
 
-### 文件清理功能（gulp-clean）
+### 文件清理功能
 
 在项目完成可以删除一些多余的文件
 
-### 任务catch模块（gulp-plumber）
+### 任务catch模块
 
 默认的 Gulp 任务在执行过程中如果出错会报错并立即停止当前工作流。使用plumber 模块可以在纠正错误后继续执行任务。
 
-### 自动打包并按时间重命名（gulp-zip）
+### 自动打包并按时间重命名
 
 一般项目完成后需要整理文件并压缩以供交付使用或进行下一阶段的开发，本模块可以实现将项目文件自动打包并按时间重命名。
 
-### 自动上传文件到远程FTP 服务器（gulp-sftp）
+### 自动上传文件到远程FTP 服务器
 
 完成开发后，可通过本命令自动上传文件到远程FTP 服务器，以供在线调试
 
-### 其他（gulp-copy、gulp-rename、opn）
+### 其他
 
 其他杂项模块为该Gulp 添加文件复制、文件重命名、浏览器自动打开项目目录等基础功能
 

@@ -1,6 +1,7 @@
 var lr         = require('tiny-lr'),
     server     = lr(),
     gulp       = require('gulp'),
+    compass    = require('gulp-compass'),
     livereload = require('gulp-livereload'), //修改文件自動刷新，可替代方案：gulp-connect
     uglify     = require('gulp-uglify'),     //js压缩工具
     plumber    = require('gulp-plumber'),    //可在程序出错后继续保持运行状态
@@ -17,6 +18,7 @@ var lr         = require('tiny-lr'),
     config     = require('./config.json'),   //配置文件
     htmlmin    = require('gulp-htmlmin'),    //html压缩
     minifycss = require('gulp-minify-css');  //css压缩
+    path = require('path');
 
 //项目目录配置(项目名称及路径可数组自由配置)
 var baseIn = "app/",
@@ -52,6 +54,15 @@ gulp.task("cssmin",function(){
         gulp.src(oCssPath[i][0]).pipe(minifycss()).pipe(gulp.dest(oCssPath[i][1]));
     }
 });
+//Compass 进行SASS 代码
+gulp.task('compass', function() {
+    gulp.src('./sass/*.scss')
+        .pipe(plumber())
+        .pipe(compass({
+            config_file: './config.rb'
+        }));
+});
+
 //压缩html
 gulp.task("htmlmin",function(){
     var options = {
@@ -153,19 +164,29 @@ gulp.task('watch', function () {
       return console.log(err);
     }
   });
-  gulp.watch(['./*.html','./*.php','./*.css','./js/*.js'],  function (e) {
+  gulp.watch('./sass/*.scss', function (e) {
+    console.log('更新sass..');
+    gulp.run('compass');
     server.changed({
       body: {
         files: [e.path]
       }
     });
   });
- 
+  gulp.watch(['./*.html','./*.php','./css/*.css','./js/*.js'],  function (e) {
+      console.log('更新修改文件..');
+      server.changed({
+      body: {
+        files: [e.path]
+      }
+    });
+  });
+
 });
 
 //默认任务 (用于开发)
 gulp.task('default', function(){
-  console.log('Starting Gulp tasks, enjoy coding!');
+  gulp.run('compass');
   gulp.run('watch');
   gulp.run('webserver');
   gulp.run('openbrowser');

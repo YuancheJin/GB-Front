@@ -3,10 +3,10 @@ require 'compass/import-once/activate'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "css"
-sass_dir = "sass"
-images_dir = "images"
-javascripts_dir = "js"
+css_dir = "app/css"
+sass_dir = "app/sass"
+images_dir = "app/images"
+javascripts_dir = "app/js"
 require 'compass-normalize'
 output_style = :nested
 #output_style = :compressed

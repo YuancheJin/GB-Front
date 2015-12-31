@@ -1,0 +1,8 @@
+body {
+  background-color: #fff;
+}
+body h1 {
+  color: red;
+  line-height: 10px;
+  background-color: #808080;
+}

@@ -8,15 +8,15 @@ sass_dir = "app/sass"
 images_dir = "app/images"
 javascripts_dir = "app/js"
 require 'compass-normalize'
-output_style = :nested
+#output_style = :nested
 #output_style = :compressed
-require 'fileutils'
-on_stylesheet_saved do |file|
-  if File.exists?(file) && File.basename(file) == "style.css"
-    puts "正在复制: #{file}"
-    FileUtils.cp(file, File.dirname(file) + "/../" + File.basename(file))
-  end
-end
+# require 'fileutils'
+# on_stylesheet_saved do |file|
+#   if File.exists?(file) && File.basename(file) == "style.css"
+#     puts "正在复制: #{file}"
+#     FileUtils.cp(file, File.dirname(file) + "/../" + File.basename(file))
+#   end
+# end
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 

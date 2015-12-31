@@ -1,0 +1,9 @@
+@mixin col-6($width:20px){
+  
+  @media (min-width: 400px) {
+    float: left;
+    width: $width;
+    background-color: green;
+    margin: 2px;
+  }
+}

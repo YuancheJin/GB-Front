@@ -1,19 +1,175 @@
+//@import "compass/reset";  //normalize   //_variables  //hsl  //#{$width}
+/////*!   // at-root  //@import "compass/layout";
+//box-shadow: 1px 1px 3px 2px #cfcecf;;  //@import "compass/css3";
+//@include box-shadow(1px 1px 3px 2px #cfcecf);
+//@debug browsers();
+//   compass interactive     browsers()  browser-versions(chrome)
+//$browser-minimum-versions:("ie" : "8");  @include appearance("button");
+//@include opacity(.3);   background-image:inline-image('about.png');
+//background-image:image-url('about.png'); //@import "compass/utilities";
 
-body{
-	background-color: #fff;
-	h1{
-		color:wheat;
-		line-height: 10px;
+//@import " compass/reset";
+//@import "normalize";
+
+@import "variables";
+@import "icons";
+//@import "mixin";
+//$supported-browsers:chrome firefox;
+//.head{
+//  color: $head_color;
+//}
+
+//%error{
+//  color: red;
+//}
+//.col-6{
+//  @extend %error;
+//  @include col-6();
+//}
+//.head{
+//  color: hsl(244,15%,30%);
+//}
 
 
-		background-color: #FFF;
-	}
+
+@import "normalize";
+
+//@import "variables";
+//@import "mixin";
+//@import "compass/css3";
+//@import "compass/utilities";
+//@import "icons";
+//$browser-minimum-versions:("ie" : "6");
+//$supported-browsers:chrome safari ie;
+//.box-shadow{
+//  box-shadow: 1px 1px 3px 2px #cfcecf;
+//  -moz-box-shadow: 1px 1px 3px 2px #cfcecf;
+//  -webkit-box-shadow: 1px 1px 3px 2px #cfcecf;
+//  @include box-shadow(1px 1px 3px 2px #cfcecf);
+//  width: 100%;
+//  height: 100px;
+//  @include inline-block(); //希望元素具有宽度高度特性，又具有同行特性
+//  @include opacity(.3);
+
+//  @include clearfix();
+//  @include pie-clearfix();
+//  @include legacy-pie-clearfix();
+//}
+//@debug browsers();
+
+
+
+//@import "compass/layout";
+//@include sticky-footer(54px);
+
+//$grid-background-column-color: rgba(255, 0, 0,.25);
+//#root{
+//  @include grid-background();
+//}
+
+/*!
+
+asdasdasdasdasd
+*/
+//%error{
+////  border: 1px solid #000000;
+//  border: 1px solid hsl(233,40%,50%);
+//}
+//
+//.col-6{
+//  @extend %error;
+//  @include col-6(20%);
+//}
+
+//a{
+//  font-size: 15px;
+//  font-weight: bold;
+//}
+
+
+
+
+//a{
+//  font:{
+//    size:15px;
+//    weight: bold;
+//  }
+////  font-size: 15px;
+////  font-weight: bold;
+//}
+
+//.head{
+//  height: $head_height;
+//  background-color: #000;
+//  color: #ffffff;
+//  text-align: center;
+//  font-size: 25px;
+//  line-height: 44px;
+//}
+/*
+  sass 的嵌套
+*/
+
+//.body{
+//  color: red;
+//  .in_body{
+//    color: green;
+//  }
+//}
+
+//a{
+//  font-size: 15px;
+//  .in_a{
+//    font-size: 12px;
+//  }
+//  &:hover{
+//    color: red;
+//  }
+//}
+//a{
+//  color: red;
+//  .in_a{
+//    color: green;
+//  }
+//}
+//a{
+////  color: red;
+//  &:hover{
+//    color: green;
+//  }
+//}
+
+//.outside{
+//  font-weight: bold;
+//  .inside_1{
+//    font-size: 16px;
+//  }
+//  .inside_2{
+//    font-size: 12px;
+//
+//  }
+//}
+//
+//.outside-inside_1{
+//  font-weight: bold;
+//  font-size: 16px;
+//}
+//.outside-inside_2{
+//  font-weight: bold;
+//  font-size: 12px;
+//}
+
+.outside{
+  font-weight: bold;
+  @at-root{
+    .inside_1{
+      font-size: 16px;
+    }
+    .inside_2{
+      font-size: 12px;
+    }
+  }
 }
-
-
-
-
-
 
 
 

@@ -1,0 +1,33 @@
+@import "compass/utilities/sprites";
+@import "retina-sprites"; //适配视网膜高清屏幕
+//$others-sprite-dimensions: true; //生成图片大小
+$about-sprite-dimensions: true;
+//$about-layout:diagonal;  //斜对角线布局方式
+$others-layout:smart;  //最节省空间方式
+
+
+@import "about/*.png";
+//@import "others/*.png";
+@include all-about-sprites(); //将图片样式 写入css
+//@include all-others-sprites();
+
+/*
+  视网膜屏幕
+*/
+
+//$sprites: sprite-map("retina-version/sprites/*.png");
+//$sprites2x:sprite-map("retina-version/sprites-retina/*.png");
+//
+//.ico-file{
+//  @include retina-sprite(file); //第二个参数用来这顶是否生成hover的样式
+//}
+//
+//.ioc-calendar{
+//  @include retina-sprite(calendar,true);
+//}
+
+//重命名
+//.main-logo{
+//  @include about-sprite("about-1");
+//}
+
